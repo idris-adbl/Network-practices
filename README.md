@@ -13,7 +13,7 @@ Basic LAN setup with DHCP. To stimulate the office network with three wired comp
 
 # Lan Setup
 
-![Screenshot 2025-04-20 180728.png](attachment:79f03fd0-9b24-4fc2-a39b-7b0d75b1fca2:Screenshot_2025-04-20_180728.png)
+<img src="https://imgur.com/a/wyZAmsR" height="80%" width="80%"/>
 
 **Installation and Setup** 
 
