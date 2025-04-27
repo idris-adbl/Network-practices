@@ -24,7 +24,7 @@ Basic LAN setup with DHCP. To stimulate the office network with three wired comp
 
 ***Step 2: Physically Connect Devices*** 
 
-    **Wired Connections**
+  **Wired Connections**
 
 1. Click on the cable icon and select a copper straight-through cable 
 
@@ -41,50 +41,73 @@ Basic LAN setup with DHCP. To stimulate the office network with three wired comp
 
   note: straight through cable = connecting unlike devices
 
-    **Wireless Connections**
+   **Wireless Connections**
 
 1. Connect WirelessRouter-0 to the Router.
 
-          -Use a  crossover cable to connect WirelessRouter-0’s internet port to Router’s GigabitEthernet 0/1.
+   -Use a  crossover cable to connect WirelessRouter-0’s internet port to Router’s GigabitEthernet 0/1.
 
   6.  Configure the Router 
 
-        [1.Click](http://1.Click) on Router-0, go to the CLI tab
+        1.Click on Router-0, go to the CLI tab
 
         2.Configure the Router’s GigabitEthernet 0/0 interface
 
 Router>en
+  
 Router#conf t
+
 Router(config)#
-Router(config)#int gi0/0                                                                           Router(config-if)#ip address 192.168.1.1 255.255.255.0                                 Router(config-if)# no shutdown
+
+Router(config)#int gi0/0                                                                          
+
+Router(config-if)#ip address 192.168.1.1 255.255.255.0                                
+
+Router(config-if)# no shutdown
+
 Router(config-if)# exit
 
-       3. Configure The Router’s GigabitEthernet 0/1 interface (for WirelessRouter-0)
+   3. Configure The Router’s GigabitEthernet 0/1 interface (for WirelessRouter-0)
 
 Router(config)#int gi0/1
-Router(config-if)#ip address 192.168.2.1 255.255.255.0                          Router(config-if)# no shutdown
+
+Router(config-if)#ip address 192.168.2.1 255.255.255.0                         
+
+Router(config-if)# no shutdown
+
 Router(config-if)#exit
 
 Router(config)#do wr
+
 Building configuration...
+
 [OK]
 Router(config)#int gi0/0
+
 Router(config-if)#no shut
 
-      4. Set up a DHCP Pool for wired devices on the 192.168.1.0/24 network:
+  4. Set up a DHCP Pool for wired devices on the 192.168.1.0/24 network:
 
 Router(config)# ip dhcp pool LAN
+
 Router(dhcp-config)# network 192.168.1.0 255.255.255.0
+
 Router(dhcp-config)# default-router 192.168.1.1
+
 Router(dhcp-config)# exit
 
-      5. Set up a DHCP Pool for wireless devices on the 192.168.2.0/24 network:
+   5. Set up a DHCP Pool for wireless devices on the 192.168.2.0/24 network:
+      
 Router(config)# ip dhcp pool WLAN
+
 Router(dhcp-config)# network 192.168.2.0 255.255.255.0
+
 Router(dhcp-config)# default-router 192.168.2.1
+
 Router(dhcp-config)# exit
 
-       6. Save the configuration:
+ 7. Save the configuration:
+    
 Router# write memory
 
 ***Step 4: Configure the Wireless Router***
